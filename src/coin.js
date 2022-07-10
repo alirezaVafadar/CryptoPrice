@@ -17,7 +17,7 @@ function Coin({image, name, symbol, price, volume, priceChange, marketcap}) {
                         <p className='coin-percent red'>{priceChange.toFixed(2)}%</p>
                     ) : (<p className='coin-percent green'>{priceChange.toFixed(2)}%</p>
                     )}
-                    <p className='coin-marketcap'>Mkt Cap: ${marketcap.toLocaleString()}</p>
+                    <p className='coin-marketcap'>Market Cap: ${marketcap.toLocaleString()}</p>
                 </div>
             </div>
         </div>
