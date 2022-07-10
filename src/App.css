@@ -28,7 +28,7 @@ body{
   flex-direction: column;
   align-items: center;
   margin-top: 45px;
-  color: #fff;
+  color: rgb(255, 255, 255);
 }
 
 .coin-search {

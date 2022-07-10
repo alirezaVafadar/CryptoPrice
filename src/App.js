@@ -2,6 +2,7 @@ import './App.css';
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
 import Coin from './coin';
+import { Container, Row, Col, Form} from 'react-bootstrap';
 
 function App() {
 
@@ -29,27 +30,36 @@ function App() {
   )
 
   return(
-    <div className='App'>
-      <div className='coin-search'>
-        <h1 className='acronym'>Crypto
-          <span className='acronym-color'>Price</span>
-        </h1>
-        <form>
-          <input type={'search'} placeholder='search a currency' className='coin-input' onChange={handleChange}/>
-        </form>
-      </div>
-      {filteredCoins.map(coin => {
-        return <Coin key={coin.id}
-          name={coin.name} 
-          image={coin.image} 
-          symbol={coin.symbol}
-          marketcap={coin.market_cap}
-          price={coin.current_price}
-          priceChange={coin.price_change_percentage_24h}
-          volume={coin.total_volume}
-        />
-      })}
-    </div>
+    <Container>
+      <Row>
+        <Col  xs={10} md={6}>
+          <h1 className='acronym'>Crypto Price</h1>
+          <Form>
+          <Form.Group className="mb-3">
+            <Form.Control type="search" placeholder="search a currency" onChange={handleChange}/>
+          </Form.Group>
+          </Form>
+        </Col>
+      </Row>
+      <Row>
+        
+          {filteredCoins.map(coin => {
+          return <Col xs={12} md={4}>
+            <Coin key={coin.id}
+            name={coin.name} 
+            image={coin.image} 
+            symbol={coin.symbol}
+            marketcap={coin.market_cap}
+            price={coin.current_price}
+            priceChange={coin.price_change_percentage_24h}
+            volume={coin.total_volume}
+
+          />
+          </Col>
+          })}
+        
+      </Row>
+    </Container>
   )
 }
 
