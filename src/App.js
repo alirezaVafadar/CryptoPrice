@@ -3,11 +3,19 @@ import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
 import Coin from './coin';
 import { Container, Row, Col, Form, Nav, Navbar} from 'react-bootstrap';
+import Modal from './Modal';
+import data from "./api";
 
 function App() {
 
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState('');
+  const [currency, setCurrency] = useState("USD");
+  const [chosenCoin, setChosenCoin] = useState(null);
+  const [modal, setModal] = useState(false);
+  const [coinData, setCoinData] = useState([]);
+  const[id,setId]=useState(null);
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,8 +29,39 @@ function App() {
     }, 300000);
   },[]);
 
+  useEffect(() => {
+    if (chosenCoin !== null) {
+      data
+        .getCoinHistory(chosenCoin, currency)
+        .then((result) => {
+          setCoinData(result.data);
+          setModal(true);
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response);
+          } else if (error.request) {
+            console.log(error.request);
+          } else if (error.message) {
+            console.log(error.message);
+          }
+        });
+    }
+  }, [chosenCoin, currency]);
+
+  useEffect(() => {
+    if (!modal) {
+      setChosenCoin(null);
+    }
+  }, [modal]);
+
+
   const handleChange = e => {
     setSearch(e.target.value)
+  }
+
+  const handleId=(passedId)=>{
+    setId(passedId);
   }
 
   const filteredCoins = coins.filter(coin =>
@@ -33,11 +72,43 @@ function App() {
     <React.Fragment>
       <Navbar bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
+          <Navbar.Brand href="#home">
+            <img
+              src="/logo192.png"
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+              alt="React logo"
+            />
+          </Navbar.Brand>
+            <Nav>
+              <Navbar.Brand href="#home">
+                <img
+                  src="/Github.png"
+                  width="30"
+                  height="30"
+                  className="d-inline-block align-top"
+                  alt="React Bootstrap logo"
+                />
+              </Navbar.Brand>
+              <Navbar.Brand href="#home">
+                <img
+                  src="/linkedin.png"
+                  width="30"
+                  height="30"
+                  className="d-inline-block align-top"
+                  alt="React Bootstrap logo"
+                />
+              </Navbar.Brand>
+              <Navbar.Brand href="#home">
+                <img
+                  src="/website.png"
+                  width="30"
+                  height="30"
+                  className="d-inline-block align-top"
+                  alt="React Bootstrap logo"
+                />
+              </Navbar.Brand>
             </Nav>
           </Container>
         </Navbar>
@@ -56,7 +127,10 @@ function App() {
           
             {filteredCoins.map(coin => {
             return <Col xs={12} md={6} lg={4}>
-              <Coin key={coin.id}
+              <Coin
+              selectedId={handleId}
+              key={coin.id}
+              id={coin.id}
               name={coin.name}
               image={coin.image} 
               symbol={coin.symbol}
@@ -71,6 +145,13 @@ function App() {
           
         </Row>
       </Container>
+      {modal && (
+        <Modal
+          coinHistory={coinData}
+          onClose={setModal}
+          coinInfo={id === chosenCoin[0]}
+        />
+      )}
     </React.Fragment>
   )
 }

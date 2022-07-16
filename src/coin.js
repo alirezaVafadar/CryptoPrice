@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react';
 import './Coin.css'
 import {Card,Button, Row, Col} from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 
 function Coin({image, name, symbol, price, volume, priceChange, marketcap}) {
+    
     return ( 
         
                 <Card bg="dark" className='card'>
@@ -22,9 +23,12 @@ function Coin({image, name, symbol, price, volume, priceChange, marketcap}) {
                         ) : (<Card.Text className='coin-percent green'>{priceChange.toFixed(2)}%</Card.Text>
                         )}
                     <Card.Body>
-                        <Card.Text className='white'>Volume: ${volume.toLocaleString()}</Card.Text>
-                        <Card.Text className='white'>Market Cap: ${marketcap.toLocaleString()}</Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
+                        <Button className='coin-volume white' variant="dark">Volume: ${volume.toLocaleString()}</Button>
+                        <Button className='coin-market white' variant="dark">Market Cap: ${marketcap.toLocaleString()}</Button>
+                        <Row>
+                            <Button  variant="primary">Price History</Button>
+                        </Row>
+                        
                     </Card.Body>
                 </Card>
     )

@@ -39,6 +39,19 @@
   color: #ffffff;
 }
 
+.coin-market{
+  width: 250px;
+  margin-bottom: 35px;
+  border-radius: 15px !important;
+  background-color: #3f3f3f !important;
+}
+.coin-volume{
+  width: 250px;
+  margin-bottom: 10px;
+  border-radius: 15px !important;
+  background-color: #3f3f3f !important;
+}
+
 .red {
   color: #f00606;
 }
