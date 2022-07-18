@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
 import Coin from './coin';
 import { Container, Row, Col, Form, Nav, Navbar} from 'react-bootstrap';
-import Modal from './Modal';
+import MyModal from './MyModal';
 import data from "./api";
 
 function App() {
@@ -14,7 +14,6 @@ function App() {
   const [chosenCoin, setChosenCoin] = useState(null);
   const [modal, setModal] = useState(false);
   const [coinData, setCoinData] = useState([]);
-  const[id,setId]=useState(null);
   
 
   useEffect(() => {
@@ -55,13 +54,11 @@ function App() {
     }
   }, [modal]);
 
-
+  const handleButton=(selected)=>{
+    setChosenCoin(selected);
+  }
   const handleChange = e => {
     setSearch(e.target.value)
-  }
-
-  const handleId=(passedId)=>{
-    setId(passedId);
   }
 
   const filteredCoins = coins.filter(coin =>
@@ -128,8 +125,8 @@ function App() {
             {filteredCoins.map(coin => {
             return <Col xs={12} md={6} lg={4}>
               <Coin
-              selectedId={handleId}
               key={coin.id}
+              onCoinSelected={handleButton}
               id={coin.id}
               name={coin.name}
               image={coin.image} 
@@ -146,10 +143,11 @@ function App() {
         </Row>
       </Container>
       {modal && (
-        <Modal
+        <MyModal
           coinHistory={coinData}
-          onClose={setModal}
-          coinInfo={id === chosenCoin[0]}
+          show={modal}
+          onHide={() => setModal(false)}
+          coinInfo={chosenCoin}
         />
       )}
     </React.Fragment>

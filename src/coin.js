@@ -3,8 +3,11 @@ import './Coin.css'
 import {Card,Button, Row, Col} from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 
-function Coin({image, name, symbol, price, volume, priceChange, marketcap}) {
+function Coin({onCoinSelected,id, key, image, name, symbol, price, volume, priceChange, marketcap}) {
     
+    const handleClick=(coinId)=>{
+        onCoinSelected(coinId);
+    }
     return ( 
         
                 <Card bg="dark" className='card'>
@@ -17,16 +20,19 @@ function Coin({image, name, symbol, price, volume, priceChange, marketcap}) {
                             <Card.Text className='coin-symbol'>{symbol.toUpperCase()}</Card.Text>
                         </Col>
                     </Row>
-                    <Card.Text className='coin-price white'>USD {price}</Card.Text>
+                    <Card.Text className='coin-price white'>USD {price.toLocaleString()}</Card.Text>
                     {priceChange < 0 ? (   
                             <Card.Text className='coin-percent red'>{priceChange.toFixed(2)}%</Card.Text>
                         ) : (<Card.Text className='coin-percent green'>{priceChange.toFixed(2)}%</Card.Text>
                         )}
                     <Card.Body>
-                        <Button className='coin-volume white' variant="dark">Volume: ${volume.toLocaleString()}</Button>
-                        <Button className='coin-market white' variant="dark">Market Cap: ${marketcap.toLocaleString()}</Button>
+                        <Row className='coin-body'>
+                            <Button className='coin-volume white' variant="dark">Volume: ${volume.toLocaleString()}</Button>
+                            <Button className='coin-market white' variant="dark">Market Cap: ${marketcap.toLocaleString()}</Button>
+                        </Row>
+                        
                         <Row>
-                            <Button  variant="primary">Price History</Button>
+                            <Button onClick={()=>handleClick(id)} variant="primary">Price History</Button>
                         </Row>
                         
                     </Card.Body>

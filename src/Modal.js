@@ -10,7 +10,7 @@ const Overlay = (props) => {
   );
 };
 
-const Card = (props) => {
+const Cardmodal = (props) => {
   return <div className={styles.card}>{props.children}</div>;
 };
 
@@ -38,14 +38,14 @@ const Modal = (props) => {
 
   return reactDom.createPortal(
     <>
-      <Card>
+      <Cardmodal>
         <div className={styles["coin-info"]}>
           <img src={props.coinInfo.image} alt={`${props.coinInfo.name} logo`} />
           <h2>
             {props.coinInfo.name}
             <br />
             <span className={styles.symbol}>
-              ({props.coinInfo.symbol.toUpperCase()})
+              ({props.coinInfo.symbol})
             </span>
           </h2>
         </div>
@@ -75,7 +75,7 @@ const Modal = (props) => {
           yLabels={priceHistory}
           name={props.coinInfo.name}
         />
-      </Card>
+      </Cardmodal>
 
       <Overlay onClose={props.onClose} />
     </>,

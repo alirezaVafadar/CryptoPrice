@@ -10,17 +10,7 @@
   }
   
   .card {
-    background-color: #303440;
-    color: #fff;
-    height: auto;
-    width: 90%;
-    max-width: 900px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 99999;
-    padding: 20px;
+    background-color: #303440 !important;
   }
   
   .card img {

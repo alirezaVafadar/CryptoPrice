@@ -38,7 +38,9 @@
 .white{
   color: #ffffff;
 }
-
+.coin-body{
+  display: flex;
+}
 .coin-market{
   width: 250px;
   margin-bottom: 35px;
