@@ -39,6 +39,7 @@ body{
 }
 
 .coin-input {
+  color: white !important;
   border: none !important;
   border-radius:15px !important;
   background-color: rgb(36, 61, 61) !important;

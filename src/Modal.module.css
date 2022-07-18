@@ -1,32 +1,7 @@
-.overlay {
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    background-color: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-  }
-  
+ 
   .card {
     background-color: #303440 !important;
-  }
-  
-  .card img {
-    height: 75px;
-    margin-right: 15px;
-  }
-  
-  .symbol {
-    color: #999;
-    font-size: 1.25rem;
-  }
-  
-  .coin-info {
-    display: flex;
-  }
-  
+  } 
   .close-icon {
     position: absolute;
     top: 20px;
@@ -38,8 +13,4 @@
   
   .close-icon:hover {
     color: #ddd;
-  }
-  
-  .select {
-    margin-top: 7.5px;
   }

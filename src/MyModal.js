@@ -53,7 +53,10 @@ const MyModal = (props) => {
                     <option value="30">1mo</option>
                     <option value="7">7d</option>
                 </select>
-
+                <AiFillCloseCircle
+                  className={styles["close-icon"]}
+                  onClick={() => props.onHide(true)}
+                />
                 <Chart
                 xLabels={dateHistory}
                 yLabels={priceHistory}
