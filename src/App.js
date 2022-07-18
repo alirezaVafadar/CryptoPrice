@@ -79,7 +79,7 @@ function App() {
             />
           </Navbar.Brand>
             <Nav>
-              <Navbar.Brand href="#home">
+              <Navbar.Brand href="https://github.com/alirezaVafadar">
                 <img
                   src="/Github.png"
                   width="30"
@@ -88,7 +88,7 @@ function App() {
                   alt="React Bootstrap logo"
                 />
               </Navbar.Brand>
-              <Navbar.Brand href="#home">
+              <Navbar.Brand href="https://www.linkedin.com/in/alirezavafadar/">
                 <img
                   src="/linkedin.png"
                   width="30"
