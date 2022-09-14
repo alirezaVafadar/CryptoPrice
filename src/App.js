@@ -97,7 +97,7 @@ function App() {
                   alt="React Bootstrap logo"
                 />
               </Navbar.Brand>
-              <Navbar.Brand href="#home">
+              <Navbar.Brand href="https://www.alirezavafadar.dev">
                 <img
                   src="/website.png"
                   width="30"
