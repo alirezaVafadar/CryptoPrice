@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/CryptoPrice/static/css/main.d7b1e2ea.css",
+    "main.js": "/CryptoPrice/static/js/main.9c6f184b.js",
+    "static/js/787.6f9a198b.chunk.js": "/CryptoPrice/static/js/787.6f9a198b.chunk.js",
+    "index.html": "/CryptoPrice/index.html",
+    "main.d7b1e2ea.css.map": "/CryptoPrice/static/css/main.d7b1e2ea.css.map",
+    "main.9c6f184b.js.map": "/CryptoPrice/static/js/main.9c6f184b.js.map",
+    "787.6f9a198b.chunk.js.map": "/CryptoPrice/static/js/787.6f9a198b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d7b1e2ea.css",
+    "static/js/main.9c6f184b.js"
+  ]
+}
