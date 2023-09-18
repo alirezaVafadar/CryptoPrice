@@ -1,9 +1,6 @@
 # Getting Started with Create React App
 
-
-visit the project link : https://alirezavafadar.github.io/CryptoPrice/
-
-
+##visit the project link : https://alirezavafadar.github.io/CryptoPrice/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
